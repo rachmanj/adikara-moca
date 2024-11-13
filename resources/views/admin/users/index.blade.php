@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('title_page')
-    USERS MANAGEMENT
+    Users Management
 @endsection
 
 @section('breadcrumb_title')
@@ -27,8 +27,7 @@
                                 <th>Name</th>
                                 <th>Username</th>
                                 <th>Project</th>
-                                <th>Dept</th>
-                                <th>Email</th>
+                                <th>Roles</th>
                                 <th>is active</th>
                                 <th></th>
                             </tr>
@@ -190,9 +189,6 @@
                     },
                     {
                         data: 'department'
-                    },
-                    {
-                        data: 'email'
                     },
                     {
                         data: 'is_active'
