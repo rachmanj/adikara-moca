@@ -132,6 +132,26 @@ class UserController extends Controller
         return redirect()->route('admin.users.index');
     }
 
+    public function change_password($id)
+    {
+        return view('admin.users.change-password');
+    }
+
+    public function password_update(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $user = User::find($id);
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        Alert::success('Success', 'Password updated successfully');
+
+        return redirect()->route('home');
+    }
+
     public function data()
     {
         $users = User::orderBy('created_at', 'desc')->get();

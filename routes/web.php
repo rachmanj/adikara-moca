@@ -21,8 +21,10 @@ Route::middleware('guest')->group(function () {
 // middleware('auth') means that the user must be authenticated to access the route
 Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/home', [DashboardController::class, 'index'])->name('home');
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     require __DIR__ . '/admin.php';
+    require __DIR__ . '/master.php';
 });

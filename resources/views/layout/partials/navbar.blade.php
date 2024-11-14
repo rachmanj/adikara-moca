@@ -19,7 +19,9 @@
                     <a href="#" class="nav-link">Dashboard</a>
                 </li>
 
-
+                @can('akses_master')
+                    @include('layout.partials.menu.master')
+                @endcan
 
 
                 <a href="#" class="nav-link">Search</a>
